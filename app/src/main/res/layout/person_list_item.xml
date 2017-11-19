@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/person_img"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="20dp"
+        android:src="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/person_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toRightOf="@id/person_img"
+        app:layout_constraintTop_toTopOf="@id/person_img" />
+
+    <TextView
+        android:id="@+id/person_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="@id/person_name"
+        app:layout_constraintTop_toBottomOf="@id/person_name" />
+
+    <TextView
+        android:id="@+id/person_birth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="@id/person_gender"
+        app:layout_constraintTop_toBottomOf="@id/person_gender" />
+
+    <ImageView
+        android:id="@+id/country"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:src="@color/colorOrange"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/person_name" />
+
+    <ImageView
+        android:id="@+id/person_star"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:src="@color/colorLightBlue"
+        app:layout_constraintBottom_toBottomOf="@id/person_img"
+        app:layout_constraintRight_toRightOf="@id/country" />
+</android.support.constraint.ConstraintLayout>
