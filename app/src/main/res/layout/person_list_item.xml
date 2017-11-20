@@ -54,6 +54,7 @@
         android:layout_width="100dp"
         android:layout_height="20dp"
         android:src="@color/colorLightBlue"
+        android:layout_marginBottom="3dp"
         app:layout_constraintBottom_toBottomOf="@id/person_img"
         app:layout_constraintRight_toRightOf="@id/country" />
 </android.support.constraint.ConstraintLayout>

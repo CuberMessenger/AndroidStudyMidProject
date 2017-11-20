@@ -7,8 +7,13 @@
     <string name="gender">性别：</string>
     <string name="bornDeath">生忌：</string>
     <string name="home">籍贯：</string>
+    <string name="country">国家：</string>
     <string name="star">星级：</string>
     <string name="info">详细信息：</string>
+    <string name="goBack">返回</string>
+    <string name="change">修改</string>
+    <string name="delete">删除</string>
+    <string name="save">保存</string>
     <string name="suggest">请输入正确的人物姓名~</string>
     <string name="caocao_info">曹操,男,155-220,豫州沛国谯,曹操是西园八校尉之一，曾只身行刺董卓，失败后和袁绍共同联合天下诸侯讨伐董卓，后独自发展自身势力，一生中先后战胜了袁术、吕布、张绣、袁绍、刘表、张鲁、马超等割据势力，统一了北方。但是在南下讨伐江东的战役中，曹操在赤壁惨败。后来在和蜀汉的汉中争夺战中，曹操再次无功而返。曹操一生未称帝，他病死后，曹丕继位后不久称帝，追封曹操为魏武皇帝。,</string>
     <string name="guanyu_info">关羽,男,?-219,司隶河东郡解,因本处势豪倚势凌人，关羽杀之而逃难江湖。闻涿县招军破贼，特来应募。与刘备、张飞桃园结义，羽居其次。使八十二斤青龙偃月刀随刘备东征西讨。虎牢关温酒斩华雄，屯土山降汉不降曹。为报恩斩颜良、诛文丑，解曹操白马之围。后得知刘备音信，过五关斩六将，千里寻兄。刘备平定益州后，封关羽为五虎大将之首，督荆州事。羽起军攻曹，放水淹七军，威震华夏。围樊城右臂中箭，幸得华佗医治，刮骨疗伤。但未曾提防东吴袭荆州，关羽父子败走麦城，突围中被捕，不屈遭害。,</string>

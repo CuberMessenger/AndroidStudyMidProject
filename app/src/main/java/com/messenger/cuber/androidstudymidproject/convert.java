@@ -11,6 +11,9 @@ public class convert {
     int an;
     List<Person> personArrayList = new ArrayList<Person>();
 
+    static void fun() {}
+
+
     convert(int a) {
         an = a;
     }
@@ -21,5 +24,9 @@ public class convert {
 
     void test() {
     }
+
+}
+
+class test {
 
 }

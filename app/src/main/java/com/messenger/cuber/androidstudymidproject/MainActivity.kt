@@ -1,5 +1,6 @@
 package com.messenger.cuber.androidstudymidproject
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -12,29 +13,42 @@ import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
     companion object {
-        val persons: MutableList<Person> = ArrayList<Person>()
+        var persons: MutableList<Person> = ArrayList<Person>()
         val names: MutableList<String> = ArrayList<String>()
+        var first_open: Boolean = true
+
+        fun refreshFile(filesDir: File) {
+            File(filesDir, "person_data").delete()
+            var originData: String = ""
+            for (p in MainActivity.persons)
+                originData += p.name + "," + p.sex + "," + p.bdData + "," + p.homeTown + "," + p.info + "," + p.master.toString() + "," + p.star.toString() + "," + p.imgPath.toString() + "\n"
+            File(filesDir, "person_data").writeText(originData)
+        }
+
+        fun gotoWithInt(context: Context, destination: Class<*>, position: Int) {
+            val intentToInfo: Intent = Intent(context, destination)
+            intentToInfo.putExtra("position", position)
+            context.startActivity(intentToInfo)
+        }
     }
 
-    private fun toInfo(position: Int) {
-        val intentToInfo: Intent = Intent(this@MainActivity, InfoActivity::class.java)
-        intentToInfo.putExtra("position", position)
-        startActivity(intentToInfo)
-    }
 
     private fun initListeners() {
         searchButton.setOnClickListener {
             searchAutoSuggestTextView.hint = ""
             val searchText: String = searchAutoSuggestTextView.text.toString()
             if (names.contains(searchText))
-                toInfo(names.indexOfFirst { name -> name == searchText })
+                gotoWithInt(this@MainActivity, InfoActivity::class.java, names.indexOfFirst { name -> name == searchText })
             else {
                 searchAutoSuggestTextView.setText("")
                 searchAutoSuggestTextView.hint = getString(R.string.suggest)
             }
         }
 
-        person_list.setOnItemClickListener { parent, view, position, id -> toInfo(position) }
+        addButton.setOnClickListener { gotoWithInt(this@MainActivity, AddChangeActivity::class.java, -1) }
+
+        //发送广播
+        person_list.setOnItemClickListener { parent, view, position, id -> gotoWithInt(this@MainActivity, InfoActivity::class.java, position) }
     }
 
     private fun clearData() {
@@ -44,6 +58,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun refreshData() {
+        //如果有文件的话，把文件内容全部读取到persons列表中
         if (filesDir.list().contains("person_data")) {
             File(filesDir, "person_data").readLines().forEach {
                 val rd = it.split(',')
@@ -51,6 +66,7 @@ class MainActivity : AppCompatActivity() {
                 names.add(rd[0])
             }
         }
+        //如果没有文件，也就是第一次打开应用，就自己创建一个带有初始信息的文件
         else {
             val file = File(filesDir, "person_data")
             var originData: String = ""
@@ -75,8 +91,11 @@ class MainActivity : AppCompatActivity() {
         searchAutoSuggestTextView.setAdapter(ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, names))
         searchAutoSuggestTextView.threshold = 1
 
-//        clearData()
-        refreshData()
+        if (first_open) {
+            first_open = false
+            clearData()
+            refreshData()
+        }
 
         val listView = findViewById<View>(R.id.person_list) as ListView
         val myAdapter = MyAdapter(this, persons)
@@ -89,6 +108,4 @@ class MainActivity : AppCompatActivity() {
 
         init()
     }
-
-
 }
