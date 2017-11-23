@@ -4,9 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.ArrayAdapter
-import android.widget.ListView
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 import kotlin.collections.ArrayList
@@ -131,7 +129,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         //ListView的Adapter
-        person_list.adapter = MyAdapter(this, persons)
+        person_list.adapter = PersonListAdapter(this, persons)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -13,7 +13,7 @@ import android.widget.TextView
  */
 
 //基本与之前实验的ListView Adapter一致，改成了用于Person的kotlin版本
-class MyAdapter(private val context: Context, private val list: MutableList<Person>) : BaseAdapter() {
+class PersonListAdapter(private val context: Context, private val list: MutableList<Person>) : BaseAdapter() {
     override fun getCount(): Int {
         return list.size ?: 0
     }
