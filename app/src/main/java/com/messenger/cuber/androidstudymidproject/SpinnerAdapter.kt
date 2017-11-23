@@ -11,6 +11,8 @@ import android.widget.TextView
 /**
  * Created by GUGE on 2017/11/20.
  */
+
+//图片下拉框的Adapter，以便在spinner中显示图片
 class SpinnerAdapter(private val context: Context, private val list: MutableList<Int>, val layout_size: Int) : BaseAdapter() {
     override fun getCount(): Int {
         return list.size ?: 0
