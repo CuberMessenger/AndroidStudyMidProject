@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         fun refreshFile(filesDir: File) {
             //将原来的文件删掉
             File(filesDir, "person_data").delete()
-            var originData: String = ""
+            var originData = ""
             //组成一个长字符串
             for (p in MainActivity.persons)
                 originData += p.name + "," + p.sex + "," + p.bdData + "," + p.homeTown + "," + p.info + "," + p.master.toString() + "," + p.star.toString() + "," + p.imgPath.toString() + "\n"
@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
         //跳转到某个页面，同时带一个int型的extra
         fun gotoWithInt(context: Context, destination: Class<*>, position: Int) {
-            val intentToInfo: Intent = Intent(context, destination)
+            val intentToInfo = Intent(context, destination)
             intentToInfo.putExtra("position", position)
             context.startActivity(intentToInfo)
         }
@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity() {
         //如果没有文件，也就是安装后第一次打开应用(或之前删除了文件)，就自己创建一个带有初始信息的文件
         else {
             val file = File(filesDir, "person_data")
-            var originData: String = ""
+            var originData = ""
             originData += getString(R.string.caocao_info) + R.drawable.wei.toString() + "," + R.drawable.five_star.toString() + "," + R.drawable.caocao.toString() + "\n"
             originData += getString(R.string.guanyu_info) + R.drawable.shu.toString() + "," + R.drawable.five_star.toString() + "," + R.drawable.guanyu.toString() + "\n"
             originData += getString(R.string.liubei_info) + R.drawable.shu.toString() + "," + R.drawable.four_star.toString() + "," + R.drawable.liubei.toString() + "\n"
